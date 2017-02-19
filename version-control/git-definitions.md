@@ -12,3 +12,5 @@ Commit message example: "Add error message when entering invalid iput"
 The message must be specific and include compatible wording. For example, use "Add" instead of "Added"
 * What is a merge conflict?
 A merge conflict can occur if the master branch has changed since you started your feature. Any merge conflict needs to be addressed before a merge can be completed.
+
+HERE ARE MY ANSWERS!!! THANK YOU
