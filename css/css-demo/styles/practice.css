@@ -1,0 +1,19 @@
+section#personal-objective a:link {
+    color: orange;
+}
+
+section#personal-objective a:visited {
+    color: green;
+}
+
+section#personal-objective a:hover {
+    color: brown;
+}
+
+section#personal-objective a:active {
+    color: blue;
+}
+
+section.job li:first-child {
+    background: blue;
+}
