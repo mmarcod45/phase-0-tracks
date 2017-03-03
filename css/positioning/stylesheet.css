@@ -1,0 +1,19 @@
+#horizontal {
+	position: relative;
+	width: 600px;
+	margin: 0 auto;
+	margin-top: 225px;
+	margin-left: 500px;
+}
+
+.eyes {
+	position: absolute;
+	bottom: 130px;
+	left: 43px;
+}
+
+.hat {
+	position: absolute;
+	bottom: 225px;
+	left: auto;
+}
