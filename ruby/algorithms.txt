@@ -1,0 +1,36 @@
+
+
+
+-Start at 1
+	-If desired_floor = 1 (select it and stop there)
+-Otherwise, move once to the right  
+	-If desired_floor == 2 (select it and stop there)
+-Otherwise, move once to the right 
+	-If desired_floor == 3 (select it and stop there)
+-Otherwise, move down once 
+	-If desired_floor == 4 (select it and stop there)
+-Otherwise, move once to the left
+	-If desired_floor == 5 (select it and stop there)
+-Otherwise, move once to the left 
+	-If desired_floor == 6 (select it and stop there)
+-Otherwise, move down once 
+	-If desired_floor == 7 (select it and stop there)
+-Otherwise, move once to the right 
+	-If desired_floor == 8 (select it and stop there)
+-Otherwise, move once to the right 
+	- Select desired_floor == 9
+
+
+-Sleep
+	-If you hear a loud sound (Hit the snooze button)
+-Otherwise, continue sleeping
+	-If it's sunny outside (wear a shirt)
+-Otherwise, wear a jacket
+	-If really tired (drink coffee) 
+-Otherwise, drink water
+	-If it's Monday, Tuesday, Wednesday, or Thursday (go study)
+-Otherwise, go to work
+	-If there is traffic (take the train)
+-Otherwise, drive
+	-If studying (go to the library for 6 hours)
+-Otherwise, go to work for 8 hours
