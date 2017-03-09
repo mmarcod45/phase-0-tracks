@@ -24,6 +24,19 @@ until current_count == 0
 	
 	puts "Would you like to enroll in the company's insurance?"
 	insurance = gets.chomp 
+
+	exit_word = "done" 
+  	user_input = ""
+
+  	while exit_word != user_input 
+    	puts "What allergies do you have?"
+    	user_input = gets.chomp 
+  	if user_input == "sunshine"
+    	uts"Probably a vampire"
+    	ser_input = gets.chomp
+    break
+  end
+end 
 	
 	
 	
@@ -44,6 +57,9 @@ until current_count == 0
 
 	current_count = current_count - 1
 end 
+
+puts "What allergies do you have?"
+allergies = gets.chomp 
 
 
 
@@ -69,4 +85,11 @@ end
 #end
 
 
+
+
+
+
+#if user_input == "sunshine"
+#  puts "Probably a vampire"
+#end 
 
