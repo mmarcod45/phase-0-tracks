@@ -24,16 +24,16 @@ until current_count == 0
 	
 	puts "Would you like to enroll in the company's insurance?"
 	insurance = gets.chomp 
+	
+  exit_word = "done" 
+  user_input = ""
 
-	exit_word = "done" 
-  	user_input = ""
-
-  	while exit_word != user_input 
-    	puts "What allergies do you have?"
-    	user_input = gets.chomp 
-  	if user_input == "sunshine"
-    	uts"Probably a vampire"
-    	ser_input = gets.chomp
+while exit_word != user_input 
+	puts "What allergies do you have?"
+    user_input = gets.chomp 
+  if user_input == "sunshine"
+    puts"Probably a vampire"
+    user_input = gets.chomp
     break
   end
 end 
@@ -54,42 +54,5 @@ end
 		puts "Results are inconclusive"
 	end
 
-
-	current_count = current_count - 1
-end 
-
-puts "What allergies do you have?"
-allergies = gets.chomp 
-
-
-
-#puts "It is #{current_year}"
-
-
-#if current_year == "2017" && (garlic_bread == "y" || insurance == "y")
-#	puts "Probably not a vampire"
-#elsif current_year != "2017" && (garlic_bread == "n" || insurance == "n")
-#	puts "Probably a vampire"
-#elsif current_year != "2017" && garlic_bread == "n" && insurance == "n"
-#	puts "Almost certainly a vampire"
-#else 
-#	puts "Results inconclusive"
-#end 
-
-#elsif person_name == "Drake Cula"
-#	puts "Definitely a vampire"
-#elsif person_name == "Tu Fang"
-#	puts "Definitely a vampire"
-#else
-#	puts "Results inconclusive"
-#end
-
-
-
-
-
-
-#if user_input == "sunshine"
-#  puts "Probably a vampire"
-#end 
-
+	puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
+end
