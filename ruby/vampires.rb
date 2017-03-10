@@ -54,5 +54,8 @@ end
 		puts "Results are inconclusive"
 	end
 
+	current_count = current_count - 1 
+
+
 	puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
 end
