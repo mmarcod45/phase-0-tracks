@@ -1,0 +1,32 @@
+header {
+  margin: auto;
+  text-align: center;
+  width: 70%;
+  font-family: comic sans ms;
+}
+
+h1 {
+   color: blue;
+   text-decoration: underline;
+}
+
+h2 {
+  text-align: center;
+}
+
+.column-1, .column-2 {
+  display: inline-block;
+  width: 40%;
+  margin-left: 8%;
+  padding: 5px;
+}
+
+.column-1 {
+    background-color: gray;
+    padding-bottom: 80px;
+}
+
+.column-2 {
+    background-color: lightblue;
+    vertical-align: top;
+    padding-bottom: 100px;
