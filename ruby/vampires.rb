@@ -1,3 +1,4 @@
+
 secret_password = "marco"
 
 def encrypt(word)
