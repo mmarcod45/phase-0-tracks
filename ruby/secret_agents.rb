@@ -1,28 +1,44 @@
-secret_password = "marco"
-new_password = ""
-index = 0 
-while index < secret_password.length 
-  new_password[index] = secret_password[index].next
+def encrypt(word)
+  index = 0 
+  while index < word.length 
+  if word[index]=="z"
+  word[index] = "a"
+  else
+  word[index] = word[index].next
+  end
+
   index += 1 
+  end 
+  word
+end
+
+def decrypt(word)
+  index = 0 
+
+
+ alphabet = "abcdefghijklmnopqrstuvwxyz"
+  while index < word.length 
+  letter = word[index]
+  position = alphabet.index(letter)
+  new_position = position - 1 
+  word[index] = alphabet[new_position]
+  index += 1 
+  end 
+  word
 end 
 
-puts new_password
+puts "Would you like to encrypt or decrypt a password?"
+user_input = gets.chomp 
 
 
-#declare a method 
-
-
-new_password[index] - 1 = "#{secret_password}"
-
-letter = "abcdefghijklmnopqrstuvwxyz".index("#{secret_password[index]}") - 1
-
-
- index = 0 
- while index < secret_password.length 
-   letters = "abcdefghijklmnopqrstuvwxyz"[letter]
-   index += 1 
- end 
-
- puts letters
-
-#change variable name: index
+if user_input == "encrypt"
+  puts "Type in the password?"
+  code_word = gets.chomp 
+  puts encrypt(code_word)
+elsif user_input == "decrypt"
+  puts "Type in the password?"
+  code_word = gets.chomp 
+  puts decrypt(code_word)
+else
+  puts "Invalid input"
+end   
