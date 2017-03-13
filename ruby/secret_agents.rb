@@ -15,6 +15,7 @@ end
 def decrypt(word)
   index = 0 
 
+#decrypt(encrypt("swordfish"))
 
  alphabet = "abcdefghijklmnopqrstuvwxyz"
   while index < word.length 
