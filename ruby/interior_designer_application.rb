@@ -9,6 +9,9 @@ applicant = {
 	"ombre is" => "Fierce", 
 }
 
-applicant["name"]
-applicant["address"]
-applicant["email"] 
+applicant["name"] = ""
+applicant["address"] = ""
+applicant["email"] = ""
+
+applicant["hired"] = "yes"
+p applicant
