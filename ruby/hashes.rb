@@ -34,28 +34,45 @@ involvement = gets.chomp
 
 
 client_information = {
-	name: client_name,
-	age: client_age,
-	children: number_children,
-	decor: decor_theme,
-	color: favorite_color,
-	rooms: number_rooms,
-	participate: involvement, 
+	"name" => client_name,
+	"age" => client_age.to_i,
+	"children" => number_children.to_i,
+	"decor" => decor_theme,
+	"color" => favorite_color,
+	"rooms" => number_rooms.to_i,
+	"participate" => involvement, 
 }
 
-##puts "Is there any information that needs to be updated? (or type 'done')"
-##updated_information = gets.chomp 
+puts "Which information would you like to update? (or type 'none')"
 
-loop do 
-	puts "Which information would you like to update? (or type 'done')"
-	input = gets.chomp 
-	break if input == "done"
-#	if input == "decor_theme"
-	if input == "name" || "age" || "children" || "decor" || "color" || "rooms" || "participate"
-	puts "Type in the updated information"
-	input_2 = gets.chomp 
-	client_information["#{input_2}"]
-end 
+client_information.each do |type, info|
+    puts type
+end
+
+type_to_change = gets.chomp #-> name
+
+unless type_to_change == 'none' || !client_information.keys.include?(type_to_change)
+#   puts "Ok, let's change #{type_to_change}!"
+#   puts "The current value is #{client_information[type_to_change]} what would you like to change it to?"
+	puts "What would you like to change it to?"
+	updated_value = gets.chomp
+	client_information[type_to_change] = updated_value
+	puts "Your information for #{type_to_change} has been updated to #{client_information[type_to_change]}"
+#   puts "Your information has been updated to #{client_information[type_to_change]}"
+end
+
+# loop do 
+# 	puts "Which information would you like to update? (or type 'none')"
+# 	input = gets.chomp 
+# 	break if input == "none"
+# 	if input == "decor_theme"
+# #	if input == "client_name" || "client_age" || "number_children" || "decor_theme" || "favorite_color" || "number_rooms" || "involvement"
+# 	puts "Type in the updated information"
+# 	input_2 = gets.chomp 
+# 	client_information["#{input_2}"]
+# end 
+
+
 
 
 
