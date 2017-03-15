@@ -11,7 +11,7 @@
 
 puts "Please answer the following questions as accurately as possible"
 
-puts "What is the client's name?"
+puts "What is the client's full name?"
 client_name = gets.chomp
 
 puts "What is the client's age?"
@@ -34,11 +34,11 @@ involvement = gets.chomp
 
 
 client_information = {
-	"name" => client_name,
+	"full name" => client_name,
 	"age" => client_age.to_i,
 	"children" => number_children.to_i,
-	"decor" => decor_theme,
-	"color" => favorite_color,
+	"decor theme" => decor_theme,
+	"favorite color" => favorite_color,
 	"rooms" => number_rooms.to_i,
 	"participate" => involvement, 
 }
