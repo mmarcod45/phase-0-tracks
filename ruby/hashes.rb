@@ -34,13 +34,13 @@ involvement = gets.chomp
 
 
 client_information = {
-	"full name" => client_name,
-	"age" => client_age.to_i,
-	"children" => number_children.to_i,
-	"decor theme" => decor_theme,
-	"favorite color" => favorite_color,
-	"rooms" => number_rooms.to_i,
-	"participate" => involvement, 
+	"full name" => "client_name",
+	"age" => "client_age.to_i",
+	"children" => "number_children.to_i",
+	"decor theme" => "decor_theme",
+	"favorite color" => "favorite_color",
+	"rooms" => "number_rooms.to_i",
+	"participate" => "involvement", 
 }
 
 puts "Which information would you like to update? (or type 'none')"
