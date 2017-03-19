@@ -37,8 +37,13 @@ shades_blue.map! {|x| x + "!" }
 #Array
 passing_scores = [54, 100, 99, 87, 68, 91]
 #passing_scores.each do |scores|
-passing_scores.delete_if {|grade| grade < 90 }
+
+passing_scores.each do |grade|
+  passing_scores.delete_if {|grade| grade < 90 }
+end 
+
 puts "The passing scores are: #{passing_scores}"
+
 
 #Hash
 average_temperature_jan = {
@@ -50,8 +55,10 @@ average_temperature_jan = {
 		"Tallahassee" => "63.5",
 		"Springfield" => "34.8",
 }
+average_temperature_jan.each do |city, temperature|
+	average_temperature_jan.delete_if{|city, temperature| temperature < "50"}
+end 
 
-average_temperature_jan.delete_if{|key, value| value < "50"}
 puts "The warmer cities are:"
 puts average_temperature_jan
 
