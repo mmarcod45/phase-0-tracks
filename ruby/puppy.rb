@@ -4,11 +4,11 @@ CLASS (SPECIES) ------------------------
 Puppy
 
 CHARACTERISTICS ------------------------
-Color:
-Weight:
-Breed: 
-Eye color:
-Friendly: yes 
+Color: Brown
+Weight: 42oz
+Breed: Husky
+Eye color: Green
+Friendly: Yes 
 
 BEHAVIOR ------------------------
 Playful 
