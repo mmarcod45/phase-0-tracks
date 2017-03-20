@@ -65,6 +65,8 @@ puts average_temperature_jan
 #2.)
 #Array
 fail_scores = [54, 100, 99, 87, 68, 91]
+
+def fail
 fail_scores.keep_if { |grade| grade < 90 }
 puts "The failing scores are: #{fail_scores}"
 
