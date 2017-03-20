@@ -28,8 +28,13 @@ def alias_name_created(original_name)
 	  consonants.index("letter")
 	  new_position = consonants.index("letter") + 1 
 	  new_letter = consonants[new_position]
-  else
-    array_split[index] == "a"
+  elsif
+    array_split[index] == "z"
+    "z" = "b"
+  elsif array_split[index] == "u"
+    "u" = "a"
+  else 
+    array_split[index] = "nil"  #might have to change the order of the elses statements. 
 end 
 end 
 
