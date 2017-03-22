@@ -10,7 +10,7 @@ class Bike # Defining the rules of how to make the objects (bikes)
 
 	def honk(times)
 		counter = 0 
-		while counter < times
+		while counter < times 
 			puts "Honk!"
 			counter += 1 
 		end 
