@@ -11,24 +11,27 @@
 # input: list, item name, and optional quantity
 # steps: 
 # 	Turn array into a hash - list item: Key, quantity: value
-# output: Hash
+#   Print hash list 
+# output: A hash grocery list with default quantity of 1 
 
 # Method to remove an item from the list
-# input: list, item name    hash[:key]
+# input: list, item 
 # steps: 
-# 	select item to delete 
-# output: hash without deleted item
+# 	select item to delete using the .delete built-in method for arrays 
+# output: hash with deleted item
 
 # Method to update the quantity of an item
-# input: updated hash
-# steps: hash[:item] = 'new item'
-# output: hash withou updated item
+# input: list, item, quantity
+# steps: 
+#    same as previous method for adding an item. This will update the quantity
+# output: hash with updated quantity for a chosen item
 
 # Method to print a list and make it look pretty
-# input: hash. (print)
+# input: list, item, quantity
 # steps:
-# 	access specific keys and values from the hash and print
-# output: printed items
+# 	Print message to let user know what is the type of list
+#   Print each item on the list displaying only the item and quantity
+# output: Nicely printed grocery list
 
 
 
@@ -56,25 +59,30 @@ def additional_item(list, item, quantity)
 end 
 
 additional_item(grocery_list, "juice", 1)
+additional_item(grocery_list, "Lemonade", 2)
+additional_item(grocery_list, "Tomatoes", 3)
+additional_item(grocery_list, "Onions", 1)
+additional_item(grocery_list, "Ice Cream", 4)
 
 p grocery_list 
 
 
-def remove_item(list, item)
+def remove_item(list, item) # challenge: check to see if item exists?
 	list.delete(item)
 end 
 
 remove_item(grocery_list, "bread")
+remove_item(grocery_list, "Lemonade")
 
 p grocery_list
 
 
-def update_item(list, item, new_item, quantity)  # update quantity here, not item. Finish Release 4 below 
-	list.delete(item) 
-	list[new_item] = quantity
+def update_item(list, item, quantity) # challenge: check to see if item exists?
+	list[item] = quantity
 end 
 
-update_item(grocery_list, "oranges", "meat", 2)
+update_item(grocery_list, "water", 2)
+update_item(grocery_list, "Ice Cream", 1)
 
 p grocery_list
 
@@ -84,14 +92,19 @@ grocery_list.each do |item, quantity|
 end 
 
 # Release 4 #################################################
-# What did you learn about pseudocode from working on this challenge?
-	# I learned pseudocode needs to have specific Inputs and Outputs to be able to pass Inputs as an Output of the next method. 
-# What are the tradeoffs of using arrays and hashes for this challenge?
-	# Using arrays will not allow us to have labeled data and hashes 
-# What does a method return?
-# What kind of things can you pass into methods as arguments?
-# How can you pass information between methods?
-# What concepts were solidified in this challenge, and what concepts are still confusing?
+# 1.) What did you learn about pseudocode from working on this challenge?
+	# I learned that pseudocode needs to have specific Inputs and Outputs to be able to pass Inputs as an Output of the next method. 
+# 2.) What are the tradeoffs of using arrays and hashes for this challenge?
+	# Using arrays will not allow us to have labeled data and hashes are not zero-indexed, making it more inconvenient than arrays to access information.
+# 3.) What does a method return?
+	# The input of another or the next method.
+# 4.) What kind of things can you pass into methods as arguments?
+	# list, item, quantity, etc. 
+# 5.) How can you pass information between methods?
+	# By using a class structure. If a class structure is not an option, we can make sure the output of one method can be the input of 
+	# another method and make sure the output of the first method is able to be accessed by the next method to pass as an argument. 
+# 6.) What concepts were solidified in this challenge, and what concepts are still confusing?
+	# The concepts of methods and passing data between different methods were solidified. The bigger picture of how these methods are useful is still confusing to me.
 
 
 
