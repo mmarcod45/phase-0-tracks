@@ -1,102 +1,34 @@
-# # Method to create a list
-# # input: string of items separated by spaces (example: "carrots apples cereal pizza")
-# # steps: 
-#   # Get user input - list (use driver code)
-#   # set default quantity. How many items in the list  .max
-#   # print the list to the console [can you use one of your other methods here?]
-# # output: [what data type goes here, array or hash?] Hash
+# Method to create a list
+# input: string of items separated by spaces (example: "carrots apples cereal pizza")
+# steps: 
+#   Get user input - list (use driver code)
+#   Push into a new array then create a new hash while setting a default quantity
+#   Set default quantity. How many items in the list.
+#   print the list to the console [can you use one of your other methods here?]
+# output: [what data type goes here, array or hash?] Hash will be the output 
 
-# # Method to add an item to a list
-# # input: list, item name, and optional quantity
-# # steps: 
-# 	# Turn array into a hash - list item: Key, quantity: value
-# # output: Hash
+# Method to add an item to a list
+# input: list, item name, and optional quantity
+# steps: 
+# 	Turn array into a hash - list item: Key, quantity: value
+# output: Hash
 
-# # Method to remove an item from the list
-# # input: list, item name    hash[:key]
-# # steps: 
-# 	# select item to delete 
-# # output: hash without deleted item
+# Method to remove an item from the list
+# input: list, item name    hash[:key]
+# steps: 
+# 	select item to delete 
+# output: hash without deleted item
 
-# # Method to update the quantity of an item
-# # input: updated hash
-# # steps: hash[:item] = 'new item'
-# # output: hash withou updated item
+# Method to update the quantity of an item
+# input: updated hash
+# steps: hash[:item] = 'new item'
+# output: hash withou updated item
 
-# # Method to print a list and make it look pretty
-# # input: hash. (print)
-# # steps:
-# 	# access specific keys and values from the hash and print
-# # output: printed items
-
-
-
-
-# def list(item)
-# 	grocery_list = []
-# 	grocery_list << item
-# 	quantity = [1]
-# 	list_quantity = {
-# 		grocery_list, quantity 
-# 	} 
-# end 
-
-# puts list("milk, juice")
-# grocery_list
-
-
-
-
-
-
-
-
-
-
-
-# def list(item, quantity)
-# 	grocery_list = []
-# 	grocery_list << item, 1 
-# 	grocery_list.split(' ')
-# 	array_grocery_list = grocery_list.split(' ')
-
-# 	hash_grocery_list = Hash.new 
-# 	grocery_list.each do |item|
-
-# # 	quantity = Hash.new 
-# # 	list_quantity = {
-# # 		grocery_list, quantity 
-# # 	}
-#     grocery_list.each do |item|
-#     h = Hash.new
-#     h[grocery_list[0]] = 1
-#     h = Hash.new(1)
-#     h["grocery_list[0]"] 
-    
-#     h = Hash.new { |hash, key| hash[key] = "Go Fish: #{key}" }
-  
-#     h[h]
-#  #   quantity << grocery_list[:item][:quantity]
-# end 
-
-# puts list("milk, juice")
-# #grocery_list
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Method to print a list and make it look pretty
+# input: hash. (print)
+# steps:
+# 	access specific keys and values from the hash and print
+# output: printed items
 
 
 
@@ -137,7 +69,7 @@ remove_item(grocery_list, "bread")
 p grocery_list
 
 
-def update_item(list, item, new_item, quantity)
+def update_item(list, item, new_item, quantity)  # update quantity here, not item. Finish Release 4 below 
 	list.delete(item) 
 	list[new_item] = quantity
 end 
@@ -146,7 +78,26 @@ update_item(grocery_list, "oranges", "meat", 2)
 
 p grocery_list
 
+puts "Here are the items and quantities in your grocery list:"
+grocery_list.each do |item, quantity|
+  puts "#{item}: #{quantity}"
+end 
 
+# Release 4 #################################################
+# What did you learn about pseudocode from working on this challenge?
+	# I learned pseudocode needs to have specific Inputs and Outputs to be able to pass Inputs as an Output of the next method. 
+# What are the tradeoffs of using arrays and hashes for this challenge?
+	# Using arrays will not allow us to have labeled data and hashes 
+# What does a method return?
+# What kind of things can you pass into methods as arguments?
+# How can you pass information between methods?
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+
+
+
+
+
+# Notes #####################################################
 # def update_item(list, item, new_item, quantity)
 #   list.find_index([item, current_quantity])
 #   index = list.find_index([item, current_quantity])
@@ -162,16 +113,3 @@ p grocery_list
 #  input - what info is needed for this method ? What info do I have for this method
 #
 #for pseudocode: do Input and Output
-
-
-
-
-
-
-
-
-
-
-
-
-
