@@ -1,27 +1,36 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge with Helen Khumthong.
+# We spent 1.5 hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# require_relative is a way for the solution file to access/link the file containing the state data, in this case. 
+# for require_relative, both files have to be in the same folder. Files can also be linked by using 'require'. With 'require', a relative path is needed.
+# since the files might not be located in the same folder. 
 require_relative 'state_data'
 
 class VirusPredictor
 
+  # METHOD: initialize instance attributes
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+  # METHOD: calls predicted_deaths and speed_of_spread methods 
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths#(@population_density, @population, @state)
+    speed_of_spread#(@population_density, @state)
   end
 
+  # KEYWORD: code below is inaccessible from outside the class
   private
+
+  # def virus_effects(predicted_deaths, speed_of_spread)
+  #   @predicted_deaths
+  #   @speed_of_spread
+  # end 
 
   # def predicted_deaths(population_density, population, state)
   #   # predicted deaths is solely based on population density
@@ -42,30 +51,19 @@ class VirusPredictor
   # end
 
 
-  def percentage_of_deaths_for_population(population)
+  # METHOD: calculates number_of_deaths as a percentage of population
+  # based on population density 
+  def percentage_of_deaths
     { 200 => 0.4, 150 => 0.3, 100 => 0.2, 50 => 0.1 }.each do |density, ratio|
-      return ratio if population >= density
+      return ratio if @population_density >= density
     end
       return 0.05
   end
 
-  def predicted_deaths(population_density, population, state)
-    number_of_deaths = (population * percentage_of_deaths_for_population(population_density)).floor
-    print "#{state} will lose #{number_of_deaths} people in this outbreak"
-  end
-
-  def months(population)
-    { 200 => 0.5, 150 => 1, 100 => 1.5, 50 => 2 }.each do |density, months_ratio|
-      return months_ratio if population >= density 
-    end 
-      return 2.5
+  def predicted_deaths
+    number_of_deaths = (@population * percentage_of_deaths).floor
+    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
   end 
-
-  def speed_of_spread(population_density, state)
-    number_of_months = months(population_density)
-    puts " and will spread across the state in #{number_of_months} months.\n\n"
-  end 
-end   
 
 
 #   def speed_of_spread(population_density, state) #in months
@@ -90,6 +88,24 @@ end
 #   end
 
 # end
+
+
+  # METHOD: returns speed of spread in months based on
+  # population density
+
+
+  def months
+    { 200 => 0.5, 150 => 1, 100 => 1.5, 50 => 2 }.each do |density, months_ratio|
+      return months_ratio if @population_density >= density 
+    end 
+      return 2.5
+  end 
+
+  def speed_of_spread
+    number_of_months = months 
+    puts " and will spread across the state in #{number_of_months} months.\n\n"
+  end 
+end  
 
 #=======================================================================
 
@@ -120,3 +136,23 @@ end
 
 #=======================================================================
 # Reflection Section
+
+# 1.) What are the differences between the two different hash syntaxes shown in the state_data file?
+  # the outter hash has a hash rocket and has the Key, Value. The inner hash, which is the Value of the outter hash, does not have the the hash rocket
+  # but also has the Key, Value. The inner hash has integers, which makes it more readable to set it up this way.
+# 2.) What does require_relative do? How is it different from require?
+  # require_relative is a way for the solution file to access/link the file containing the state data, in this case. 
+  # for require_relative, both files have to be in the same folder. Files can also be linked by using 'require'. With 'require', a relative path is needed.
+  # since the files might not be located in the same folder. 
+# 3.) What are some ways to iterate through a hash?
+  # Ways to iterate through a hash are with a while loop and with an each/do method. 
+# 4.) When refactoring virus_effects, what stood out to you about the variables, if anything?
+  # What stood out the most to me is that there is no need to have arguments in each and can just access them using instance variables at initialize. 
+  # This helped to make the virus_effects method and other methods more concise (more DRY!).
+# 5.) What concept did you most solidify in this challenge?
+  # the concepts of private, require_relative, require, and the meaning of DRY.
+
+
+
+
+
