@@ -1,63 +1,71 @@
-# Get a user/secret agent name
-# lowercase first letters
-# split the name (' ') then reverse 
-# split again using ('') to turn into an array
-# Get next vowel
-# Get next consonant 
+# take a full name as an argument 
+# swap the first and last name 
+# change vowels to next vowel
+#  change consonants to the next consonant 
+#
+# provide a user interface
 # 
-# Allow the user/secret agent to type 'quit'
-# Iterate through the data structure and print all data the user entered
-# Type your final sentence 
 
-def alias_name_created(original_name)
-  lowercased_name = original_name.downcase 
-  reversed_name = lowercased_name.reverse 
-  array_split = reversed_name.split('')
-  vowels = ["a", "e", "i", "o", "u"]
-  consonants = "bcdfghjklmnpqrstvwxy"
-  consonants = consonants.split('')
 
-	index = 0 
-  if vowels.include?("array_split[index]")
-	  letter = array_split[index] 
-	  vowels.index("letter")
-	  new_position = vowels.index("letter") + 1 
-	  new_letter = vowels[new_position]
-  elsif consonants.include?("array_split[index]")
-	  letter = array_split[index]
-	  consonants.index("letter")
-	  new_position = consonants.index("letter") + 1 
-	  new_letter = consonants[new_position]
-  elsif
-    array_split[index] == "z"
-    "z" = "b"
-  elsif array_split[index] == "u"
-    "u" = "a"
-  else 
-    array_split[index] = "nil"  #might have to change the order of the elses statements. 
+
+# def name(full_name)
+#   vowels = ["a", "e", "i", "o", "u"]
+#   lowercase_name = full_name.downcase
+#   reverse_words = lowercase_name.reverse
+#   split_name = reverse_words.split('')
+#   split_name.each do |item|
+#     if vowels.include? item 
+#       item = vowels[item + 1]
+# end 
+
+# name("Marco Marin")
+
+lowercase_name = "marco marin"
+p split_namedd = lowercase_name.split(' ')
+p reverse_words = split_namedd.reverse
+
+
+
+def name(full_name)
+  letters = ["a", "e", "i", "o", "u", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
+  #split_name = ["n", "i", "r", "a", "m", " ", "o", "c", "r", "a", "m"]#["a", "e", "o", "u"]
+  
+  lowercase_name = full_name.downcase
+  reverse_name = lowercase_name.split(/\b/).reverse!.join('')
+  #reverse_words = lowercase_name.reverse
+  split_name = reverse_name.split('')
+  
+  agent_name = ""
+  
+  split_name.each do |item|
+    # if item == " "
+    #   p item = "t"
+    if item == "u"
+      p item = "a"
+      agent_name << item
+    elsif item == "z"
+      p item = "b"
+      agent_name << item
+    elsif item == " "
+      p item = " "
+      agent_name << item
+    else 
+      position = letters.index(item)
+      new_position = position + 1 
+      p item = letters[new_position]
+      agent_name << item
+    end 
+  end 
+  
+  p agent_name.split.map(&:capitalize).join(' ')
+  
+  # capitalize1 = agent_name.capitalize
+  # p capitalize2 = capitalize1.split(/\b/).reverse!.join('')
+  # p capitalize_all = capitalize2.capitalize
+  #p agent_name.split(/ |\_/).map(&:capitalize).join(" ")
 end 
-end 
 
-	return array_split
-
-
-p alias_name_created("Marco")
-
-
-
-
-
-# This is an alias method that loops through the original name to change the letters
-def alias_name_created(original_name)
-  lowercased_name = original_name.downcase 
-  reversed_name = lowercased_name.reverse 
-  array_split = reversed_name.split('')
-  array_split.join.capitalize
-end 
-
-p alias_name_created("Marco Marin")
-
-
+name("Felicia Torres")
 
 
 
