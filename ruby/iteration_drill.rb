@@ -182,3 +182,5 @@ not_extinct = extinct_animals.tap { |h| h.delete("Passenger Pigeon") }
 #p extinct_animals
 p not_extinct.to_a
 
+extinct_animals.shift  # it must return array = ["Passenger Pigeon", 1914]
+
