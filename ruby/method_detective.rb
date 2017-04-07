@@ -14,7 +14,7 @@
  "enhance".center(15)
 # => "    enhance    "
 
- "Stop! You’re under arrest!".swapcase
+ "Stop! You’re under arrest!".swapcase #this will swap case
  "Stop! You’re under arrest!".upcase 
 
 # => "STOP! YOU’RE UNDER ARREST!"
