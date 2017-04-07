@@ -183,4 +183,3 @@ extinct_animals.tap { |h| h.delete("Passenger Pigeon") }
 p extinct_animals
 
 #extinct_animals.shift  # this will remove firt key/value pair and return them in an array
-
