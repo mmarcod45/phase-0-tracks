@@ -20,9 +20,9 @@
 
 # name("Marco Marin")
 
-lowercase_name = "marco marin"
-p split_namedd = lowercase_name.split(' ')
-p reverse_words = split_namedd.reverse
+# lowercase_name = "marco marin"
+# p split_namedd = lowercase_name.split(' ')
+# p reverse_words = split_namedd.reverse
 
 
 
@@ -41,18 +41,18 @@ def name(full_name)
     # if item == " "
     #   p item = "t"
     if item == "u"
-      p item = "a"
+      item = "a" # p to print
       agent_name << item
     elsif item == "z"
-      p item = "b"
+      item = "b" # p to print
       agent_name << item
     elsif item == " "
-      p item = " "
+      item = " " # p to print
       agent_name << item
     else 
       position = letters.index(item)
       new_position = position + 1 
-      p item = letters[new_position]
+      item = letters[new_position] # p to print
       agent_name << item
     end 
   end 
@@ -65,72 +65,34 @@ def name(full_name)
   #p agent_name.split(/ |\_/).map(&:capitalize).join(" ")
 end 
 
-name("Felicia Torres")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+agent_names = []
+
+until 
+  puts "Enter a name: (type 'quit' when done)"
+  input = gets.chomp
+  break if input == "quit"
+  #p name(input)
+  indiv_agent = name(input)
+  agent_names << indiv_agent
+end 
+
+puts "Here are your secret agent names:"
+agent_names.each do |item|
+  puts item 
+end 
+
+#name("Felicia Torres")
+# name(input) 
+
+################## THE WHILE LOOP BELOW ALSO WORKS ABOVE ############
+
+agent_names = []
+
+exit_word = "quit"
+input = ""
+while input != exit_word
+  puts "Enter a name: (type 'quit' when done)"
+  input = gets.chomp
+  indiv_agent = name(input)
+  agent_names << indiv_agent
+end 
