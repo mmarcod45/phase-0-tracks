@@ -1,60 +1,60 @@
-# take a full name as an argument 
-# swap the first and last name 
-# change vowels to next vowel
-#  change consonants to the next consonant 
-#
-# provide a user interface
-# allow user to enter multiple names (loop)
-# print the secret agent names stored in a data structure
 
 
+# Get a user/secret agent name
+# lowercase first letters
+# split the name (' ') then reverse 
+# split again using ('') to turn into an array
+# Get next vowel
+# Get next consonant 
+# 
+# Allow the user/secret agent to type 'quit'
+# Iterate through the data structure and print all data the user entered
+# Type your final sentence 
 
+def alias_name_created(original_name)
+  lowercased_name = original_name.downcase 
+  reversed_name = lowercased_name.reverse 
+  array_split = reversed_name.split('')
+  vowels = ["a", "e", "i", "o", "u"]
+  consonants = "bcdfghjklmnpqrstvwxy"
+  consonants = consonants.split('')
 
-def name(full_name)
-  letters = ["a", "e", "i", "o", "u", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
-  
-  lowercase_name = full_name.downcase
-  reverse_name = lowercase_name.split(/\b/).reverse!.join('')
-  split_name = reverse_name.split('')
-  
-  agent_name = ""
-  
-  split_name.each do |item|
-    if item == "u"
-      item = "a" # p to print
-      agent_name << item
-    elsif item == "z"
-      item = "b" # p to print
-      agent_name << item
-    elsif item == " "
-      item = " " # p to print
-      agent_name << item
-    else 
-      position = letters.index(item)
-      new_position = position + 1 
-      item = letters[new_position] # p to print
-      agent_name << item
-    end 
-  end 
-  
-  p agent_name.split.map(&:capitalize).join(' ')
-  
-
+  index = 0 
+  if vowels.include?("array_split[index]")
+    letter = array_split[index] 
+    vowels.index("letter")
+    new_position = vowels.index("letter") + 1 
+    new_letter = vowels[new_position]
+  elsif consonants.include?("array_split[index]")
+    letter = array_split[index]
+    consonants.index("letter")
+    new_position = consonants.index("letter") + 1 
+    new_letter = consonants[new_position]
+  elsif
+    array_split[index] == "z"
+    "z" = "b"
+  elsif array_split[index] == "u"
+    "u" = "a"
+  else 
+    array_split[index] = "nil"  #might have to change the order of the elses statements. 
+end 
 end 
 
-agent_names = []
+  return array_split
 
-until 
-  puts "Enter a name: (type 'quit' when done)"
-  input = gets.chomp
-  break if input == "quit"
-  #p name(input)
-  indiv_agent = name(input)
-  agent_names << indiv_agent
+
+p alias_name_created("Marco")
+
+
+
+
+
+# This is an alias method that loops through the original name to change the letters
+def alias_name_created(original_name)
+  lowercased_name = original_name.downcase 
+  reversed_name = lowercased_name.reverse 
+  array_split = reversed_name.split('')
+  array_split.join.capitalize
 end 
 
-puts "Here are your secret agent names:"
-agent_names.each do |item|
-  puts item 
-end 
-
+p alias_name_created("Marco Marin")
