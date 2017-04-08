@@ -12,10 +12,13 @@
 
 def name(full_name)
   letters = ["a", "e", "i", "o", "u", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
+
+  split_name = full_name.split.reverse.join(' ').downcase.split('')
+
   
-  lowercase_name = full_name.downcase
-  reverse_name = lowercase_name.split(/\b/).reverse!.join('')
-  split_name = reverse_name.split('')
+  # lowercase_name = full_name.downcase
+  # reverse_name = lowercase_name.split(/\b/).reverse!.join('')
+  # split_name = reverse_name.split('')
   
   agent_name = ""
   
@@ -38,6 +41,12 @@ def name(full_name)
   end 
   
   p agent_name.split.map(&:capitalize).join(' ')
+
+  # agent_name.split.map do |word|
+  #   word.capitalize
+  # end.join(' ')
+
+  #p agent_name
   
 
 end 
@@ -57,3 +66,4 @@ puts "Here are your secret agent names:"
 agent_names.each do |item|
   puts item 
 end 
+
