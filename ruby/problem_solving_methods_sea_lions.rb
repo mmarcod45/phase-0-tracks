@@ -72,9 +72,8 @@ fib(6)
 # Bubble sort
 def bubble_sort(array)
 
-  loop do
-    swapped = false
-    
+  until swapped = false
+
     counter = 0 
     while counter < array.length - 1
       if array[counter] > array[counter+1]
@@ -86,7 +85,9 @@ def bubble_sort(array)
     
     #break if not swapped  #this line will also work 
     break if swapped == false 
+    
   end
+  
   array
 end
 
