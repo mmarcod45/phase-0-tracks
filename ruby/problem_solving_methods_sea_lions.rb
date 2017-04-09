@@ -70,24 +70,25 @@ fib(6)
 
 # RELEASE 2
 # Bubble sort
-def bubble_sort array
-  n = array.length
+def bubble_sort(array)
 
   loop do
     swapped = false
-
-    (n-1).times do |i|
-      if array[i] > array[i+1]
-        array[i], array[i+1]=array[i+1], array[i]
-        swapped = true
+    
+    counter = 0 
+    while counter < array.length - 1
+      if array[counter] > array[counter+1]
+          array[counter], array[counter+1] = array[counter+1], array[counter]
+          swapped = true
       end
-    end
-
-    break if not swapped
+      counter += 1
+    end 
+    
+    #break if not swapped  #this line will also work 
+    break if swapped == false 
   end
-
   array
 end
 
-a = [1, 4, 1, 3, 4, 1, 3, 3]
-p bubble_sort(a)
+array = [1, 4, 1, 3, 4, 1, 3, 3]
+p bubble_sort(array)
