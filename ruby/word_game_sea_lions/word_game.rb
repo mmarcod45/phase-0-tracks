@@ -17,6 +17,7 @@ class GuessWord
   def run_game(word, guess)
     until !@current_state.include?("_") || @guess_chances == 0
       guess_word(word, guess)
+      puts "_______________________"
       break if !@current_state.include?("_") || @guess_chances == 0 
       guess = gets.chomp 
     end 
@@ -71,13 +72,14 @@ end
 ## user interface 
 puts "User 1. Enter a word:"
 word = gets.chomp
-puts "_____________________"
+puts "_______________________"
 
 game = GuessWord.new(word)
 
 
 while !game.is_over
   puts "User 2. Guess the word:"
+  puts "_______________________"
   guess = gets.chomp
   game.run_game(word, guess) 
 end
