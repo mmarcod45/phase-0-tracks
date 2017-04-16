@@ -71,7 +71,7 @@ end
 
 ## user interface 
 puts "User 1. Enter a word:"
-word = gets.chomp
+word = gets.chomp.downcase
 puts "_______________________"
 
 game = GuessWord.new(word)
@@ -80,6 +80,6 @@ game = GuessWord.new(word)
 while !game.is_over
   puts "User 2. Guess the word:"
   puts "_______________________"
-  guess = gets.chomp
+  guess = gets.chomp.downcase
   game.run_game(word, guess) 
 end
