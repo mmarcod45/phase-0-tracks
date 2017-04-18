@@ -18,25 +18,25 @@ console.log(horse_colors);
 
 ////////
 
-// function Car(make, model, fuel_efficient) {
-// 	console.log("We are creating multiple cars...");
-// 	console.log("new car", this);
-// 	this.make = make
-// 	this.model = model
-// 	this.fuel_efficient = fuel_efficient
+function Car(make, model, fuel_efficient) {
+	console.log("We are creating multiple cars...");
+	console.log("new car", this);
+	this.make = make
+	this.model = model
+	this.fuel_efficient = fuel_efficient
 
-// 	this.honk = function() { console.log("Beep!"); };
-// }
+	this.honk = function() { console.log("Beep!"); };
+}
 
-// var first_car = new Car("Bugatti", "Veyron", true);
+var first_car = new Car("Bugatti", "Veyron", true);
 
-// console.log(first_car);
-// console.log("Our car can beep!");
-// first_car.honk(); 
+console.log(first_car);
+console.log("Our car can beep!");
+first_car.honk(); 
 
-// var second_car = new Car("Mercedes", "E Series", true);
+var second_car = new Car("Mercedes", "E Series", true);
 
-// console.log(second_car);
-// console.log("Our car can beep!");
-// second_car.honk();
+console.log(second_car);
+console.log("Our car can beep!");
+second_car.honk();
 
