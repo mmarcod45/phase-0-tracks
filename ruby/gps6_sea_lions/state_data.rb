@@ -3,9 +3,9 @@
 
 
 STATE_DATA = {
-  "Alabama" => {population_density: 94.65, population: 4822023},
-  "Alaska" => {population_density: 1.1111, population: 731449},
-  "Arizona" => {population_density: 57.05, population: 6553255},
+  "Alabama" => {population_density: 94.65, population: 4822023}, # symbols are advantageous: population density and population repeat 50 times and can assign UUID 
+  "Alaska" => {population_density: 1.1111, population: 731449}, # saves local memory 
+  "Arizona" => {population_density: 57.05, population: 6553255}, # with symbols, keys will be unchangeable
   "Arkansas" => {population_density: 56.43, population: 2949131},
   "California" => {population_density: 244.2, population: 38041430},
   "Colorado" => {population_density: 49.33, population: 5187582},
