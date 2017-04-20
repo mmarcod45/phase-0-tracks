@@ -38,3 +38,6 @@ function reverseWord(str) {
  
 reverseWord("hello"); 
 console.log(reverseWord("hello"));
+
+var length = 5
+if (length < 10) { console.log(reverseWord("bye")) }
