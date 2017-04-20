@@ -22,3 +22,19 @@ for (var i=10; i > 0; i-- ) { // this will count down and stop at 1
 
 
 // release 4
+
+// take input as a string
+// split the string
+// reverse the split string
+// join the split string
+// return the reversed string as output and print 
+
+function reverseWord(str) {
+    var splitWord = str.split("");
+    var reverseArray = splitWord.reverse(); 
+    var joinArray = reverseArray.join(""); 
+    return joinArray; 
+}
+ 
+reverseWord("hello"); 
+console.log(reverseWord("hello"));
