@@ -1,4 +1,5 @@
 var random_array = ["long phrase","longest phrase","longer phrase"];
+var random_array_2 = ["long phrase","longest phrase","longer phrase", "longesttttt phrasee in the world"];
 
 
 function longest_string(array) {
@@ -15,6 +16,7 @@ function longest_string(array) {
 }
 
 console.log(longest_string(random_array));
+console.log(longest_string(random_array_2));
 
 
 // function longest_string(array) {
