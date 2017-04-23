@@ -1,4 +1,4 @@
-// Release 0 
+///////// Release 0 
 
 var random_array = ["long phrase","longest phrase","longer phrase"];
 var random_array_2 = ["long phrase","longest phrase","longer phrase", "longesttttt phrasee in the world"];
@@ -37,7 +37,7 @@ console.log(longest_string(random_array_2));
 
 
 
-// Release 1 
+///////// Release 1 
 
 // var object_1 = {name: "Steven", age: 54}
 // var object_2 = {name: "Tamir", age: 54}
@@ -86,62 +86,43 @@ console.log(match(data_1, data_2));
 
 
 
-// Release 2
+///////// Release 2
 
+function random_word(integer) {
 
+	var array = []
 
-function words(integer) {
+	for (var i = 0; i < integer; i++) {
+  
+  	
+  	var string = "";
+  	
+  	random = Math.floor(Math.random() * (10 - 1)) + 1;
+  	
+  	for (var i = 0; i < random; i++) {
+  	
+  	var possible = "abcdefghijklmnopqrstuvwxyz"
+  	
+  	
+  	text = possible.charAt(Math.floor(Math.random() * possible.length));
+  	
+  	
+  	string += text
+  	
+  	}
+  	string
+  	array.push(string)
+  	console.log(array);
+  	return array 
+
+	}
+
 
 }
 
-
-
-console.log(function(3));
+console.log(random_word(3));
 
 
 
-function makeid()
-{
-    random = Math.floor(Math.random() * (10 - 1)) + 1;
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    for( var i=0; i < random; i++ )
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-    return text;
-}
-
-makeid()
-
-//////
-
-
-function random() {
-  
-  var array = []
-  
-  var string = "";
-  
-  random = Math.floor(Math.random() * (10 - 1)) + 1;
-  
-  for (var i = 0; i < random; i++) {
-  
-  var possible = "abcdefghijklmnopqrstuvwxyz"
-  
-  
-  text = possible.charAt(Math.floor(Math.random() * possible.length));
-  
-  
-  string += text
-  
-  }
-  string
-  array.push(string)
-  return array 
-
-}
-
-random()
 
 
