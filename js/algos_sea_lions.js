@@ -1,3 +1,5 @@
+// Release 0 
+
 var random_array = ["long phrase","longest phrase","longer phrase"];
 var random_array_2 = ["long phrase","longest phrase","longer phrase", "longesttttt phrasee in the world"];
 
@@ -32,3 +34,114 @@ console.log(longest_string(random_array_2));
 // }
 
 // console.log(longest_string(random_array));
+
+
+
+// Release 1 
+
+// var object_1 = {name: "Steven", age: 54}
+// var object_2 = {name: "Tamir", age: 54}
+
+// function match(object1, object2) {
+// 	for (var i = 0; i < obj1.length; i++) {
+// 		if (object1.name ===
+// 	}
+// }
+
+// function match(object1, object2) {
+// 	for (var key in object_1) {
+// 		if object_2.include? key
+// 	}
+// }
+
+// for (var key in data) {
+//   console.log(key);
+// }
+
+/////
+
+
+var data_1 = {name: "Steven", age: 54}
+var data_2 = {name: "Tamir", age: 54}
+
+function match(data_1, data_2) {
+  if (data_1.name === data_2.name) {
+    return true;
+  } else if (data_1.age === data_2.age) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(match(data_1, data_2));
+
+
+// var obj = {a: 1, b: 2, c: 3};
+// var obj2 = {a: 1, e: 6, f: 8};
+
+// obj.hasOwnProperty("a");
+
+// obj["a"] === obj2["a"]
+
+
+
+// Release 2
+
+
+
+function words(integer) {
+
+}
+
+
+
+console.log(function(3));
+
+
+
+function makeid()
+{
+    random = Math.floor(Math.random() * (10 - 1)) + 1;
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for( var i=0; i < random; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
+
+makeid()
+
+//////
+
+
+function random() {
+  
+  var array = []
+  
+  var string = "";
+  
+  random = Math.floor(Math.random() * (10 - 1)) + 1;
+  
+  for (var i = 0; i < random; i++) {
+  
+  var possible = "abcdefghijklmnopqrstuvwxyz"
+  
+  
+  text = possible.charAt(Math.floor(Math.random() * possible.length));
+  
+  
+  string += text
+  
+  }
+  string
+  array.push(string)
+  return array 
+
+}
+
+random()
+
+
