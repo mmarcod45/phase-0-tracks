@@ -1,13 +1,47 @@
-##Use a join to view the data in both tables at once:
 
 ## the command below allows to view both tables at once:
 SELECT * FROM students, years WHERE students.year_id = years.id;
 
+1|Jane Ace|19|true|2|2|Sophomore
+3|Joseph Addison|21|false|3|3|Junior
+4|Barbara Lin|23|true|4|4|Senior
+5|Francis Bacon|19|false|1|1|Freshman
+6|Alain Badiou|20|true|2|2|Sophomore
+7|Lester Ball|22|false|4|4|Senior
+8|Elaine Barry|21|true|3|3|Junior
+
+
 ## the join command below allows to view the student name and year in school:
 SELECT students.name, years.year FROM students JOIN years ON students.year_id = years.id;
+
+Jane Ace|Sophomore
+Joseph Addison|Junior
+Barbara Lin|Senior
+Francis Bacon|Freshman
+Alain Badiou|Sophomore
+Lester Ball|Senior
+Elaine Barry|Junior
+
 
 ## the join command below allows to view the student age and year in school:
 SELECT students.age, years.year FROM students JOIN years ON students.year_id = years.id;
 
+19|Sophomore
+21|Junior
+23|Senior
+19|Freshman
+20|Sophomore
+22|Senior
+21|Junior
+
+
 ## the join command below allows to view the student age and the admitted status:
 SELECT students.admitted, years.year FROM students JOIN years ON students.year_id = years.id;
+
+true|Sophomore
+false|Junior
+true|Senior
+false|Freshman
+true|Sophomore
+false|Senior
+true|Junior
