@@ -35,7 +35,7 @@ SELECT students.age, years.year FROM students JOIN years ON students.year_id = y
 21|Junior
 
 
-## the join command below allows to view the student age and the admitted status:
+## the join command below allows to view the admitted status and year in school:
 SELECT students.admitted, years.year FROM students JOIN years ON students.year_id = years.id;
 
 true|Sophomore
