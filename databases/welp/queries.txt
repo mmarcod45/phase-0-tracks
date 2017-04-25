@@ -1,3 +1,16 @@
+--- query to join three tables:
+SELECT reviews.id, reviews.stars, reviews.comment, businesses.id, businesses.name, users.id, users.first_name, users.last_name FROM reviews INNER JOIN businesses ON reviews.business_id = businesses.id
+INNER JOIN users ON reviews.user_id = users.id;
+
+--- to view only user name, business name, stars and comment:
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM reviews INNER JOIN businesses ON reviews.business_id = businesses.id
+INNER JOIN users ON reviews.user_id = users.id;
+
+SELECT reviews.id, reviews.stars, reviews.comment, businesses.name, users.first_name, users.last_name FROM reviews INNER JOIN businesses ON reviews.business_id = businesses.id
+INNER JOIN users ON reviews.user_id = users.id;
+
+
+--- ADDITIONAL QUERIES/NOTES:
 lSELECT * FROM reviews, businesses WHERE reviews.business_id = businesses.id;
 SELECT * FROM reviews, users WHERE reviews.user_id = users.id;
 
@@ -21,9 +34,12 @@ SELECT reviews.stars, reviews.comment, reviews.business_id, reviews.user_id FROM
 SELECT reviews.stars, reviews.comment, businesses.name FROM reviews JOIN businesses ON reviews.business_id = businesses.id;
 
 
---- query to join three tables:
-SELECT reviews.id, reviews.stars, reviews.comment, businesses.name, users.first_name, users.last_name FROM reviews INNER JOIN businesses ON reviews.business_id = businesses.id
-INNER JOIN users ON reviews.user_id = users.id;
 
-SELECT users.first_name, users.last_name, reviews.stars, reviews.comment, businesses.name, users.last_name, users.first_name FROM reviews INNER JOIN businesses ON reviews.business_id = businesses.id
-INNER JOIN users ON reviews.user_id = users.id;
+
+
+
+
+
+SELECT * FROM reviews, businesses WHERE reviews.business_id = businesses.id;
+SELECT * FROM reviews, users WHERE reviews.user_id = users.id;
+
