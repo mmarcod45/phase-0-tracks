@@ -38,8 +38,8 @@ SELECT reviews.stars, reviews.comment, businesses.name FROM reviews JOIN busines
 
 
 
-
-
 SELECT * FROM reviews, businesses WHERE reviews.business_id = businesses.id;
 SELECT * FROM reviews, users WHERE reviews.user_id = users.id;
+
+
 
