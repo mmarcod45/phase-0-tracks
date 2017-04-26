@@ -1,0 +1,21 @@
+
+--- join three tables:
+SELECT * FROM businesses, users, reviews WHERE reviews.business_id = businesses.id AND reviews.user_id = users.id;
+
+1|Sushi World|2|Britney Spears|1|2|Slow service and tasted bad|1|2
+3|McDonald's|1|Brad Pitt|2|5|Best hamburger in the world!!!|3|1
+2|Lotus Yoga|3|Mandy Kaling|3|3|Very relaxing but not convenient to get there|2|3
+4|Apple Store|4|Steven Wonder|4|4|Great customer service!!!|4|4
+
+------------------------------------
+
+--- additional query to join three tables:
+SELECT businesses.name, reviews.stars, reviews.comment, users.full_name FROM reviews JOIN businesses, users ON reviews.business_id = businesses.id AND reviews.user_id = users.id;
+
+Sushi World|2|Slow service and tasted bad|Britney Spears
+McDonald's|5|Best hamburger in the world!!!|Brad Pitt
+Lotus Yoga|3|Very relaxing but not convenient to get there|Mandy Kaling
+Apple Store|4|Great customer service!!!|Steven Wonder
+
+
+
