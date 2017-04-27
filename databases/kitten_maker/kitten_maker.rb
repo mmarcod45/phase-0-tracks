@@ -37,8 +37,13 @@ end
 end
 
 # explore ORM by retrieving data
-# kittens = db.execute("SELECT * FROM kittens")
-# kittens.each do |kitten|
-#  puts "#{kitten['name']} is #{kitten['age']}"
-# end
+kittens = db.execute("SELECT * FROM kittens")
+kittens.each do |kitten|
+ puts "#{kitten['name']} is #{kitten['age']}"
+ # puts "#{kitten[1]} is #{kitten[2]}" Can also do this, but it's harder to read.
+end
+
+kittens = db.execute("SELECT * FROM kittens")
+puts kittens.class
+p kittens
 
