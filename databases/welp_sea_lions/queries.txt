@@ -24,25 +24,3 @@ SELECT * FROM businesses, users, reviews WHERE reviews.business_id = businesses.
 
 1|Sushi World|2|Britney Spears|1|2|Slow service and tasted bad|1|2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM reviews INNER JOIN businesses ON reviews.business_id = businesses.id
-INNER JOIN users ON reviews.user_id = users.id;
