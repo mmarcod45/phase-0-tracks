@@ -9,17 +9,17 @@ class Database
     @db = SQLite3::Database.new("customers.db")
     @db.results_as_hash = true 
   end 
-                        # the db below as an argument might not be needed. It is already an instance variable.
-  def create_customer(db, first_name, last_name, age, color_id, movie_id)
+                        # the db below as an argument was not be needed. @db is already an instance variable and it is accessible.
+  def create_customer(first_name, last_name, age, color_id, movie_id)
     @db.execute("INSERT INTO customers (first_name, last_name, age, color_id, movie_id) VALUES (?, ?, ?, ?, ?)", [first_name, last_name, age, color_id, movie_id])
   end
 
-  def delete_customer(db, name1, name2)
+  def delete_customer(name1, name2)
     @db.execute("DELETE FROM customers WHERE first_name=? AND last_name=?", [name1], [name2])
     # delete_customer(db, "Tara", "Smith")
   end 
 
-  def update_customer(db, name1, name2, input, change_to)
+  def update_customer(name1, name2, input, change_to)
     if input == "first name"
       @db.execute("UPDATE customers SET first_name=? WHERE first_name=? AND last_name=?", [change_to], [name1], [name2])
     elsif input == "last name"
@@ -55,67 +55,68 @@ end
 
 # user interface 
 
-puts "Select the number what you would like to do in the database:"
-puts "1 to Insert customer"
-puts "2 to Delete customer"
-puts "3 to Update customer"
-
-input = gets.chomp.to_i
-
 database = Database.new
 
-#input = ""
-#until input == "done"
-  if input == 1
-    puts "Enter customer first name:"
-    first_name = gets.chomp
-    puts "Enter customer last name:"
-    last_name = gets.chomp
-    puts "Enter the customer's age:"
-    age = gets.chomp.to_i
-    puts "Enter id for customer's favorite color:"
-    favorite_color = gets.chomp.to_i
-    puts "Enter id for customer's favorite movie:"
-    favorite_movie = gets.chomp.to_i 
+input = ""
+until input == "done"
+  puts "Select the number what you would like to do in the database: (or type 'done')"
+  puts "1 to Insert customer"
+  puts "2 to Delete customer"
+  puts "3 to Update customer"
+  
+  input = gets.chomp.to_i
 
-    database.create_customer(@db, first_name, last_name, age, favorite_color, favorite_movie)
-  elsif input == 2
-    puts "Enter the first name of the customer you want to delete:"
-    first_name = gets.chomp
-    puts "Enter the last name of the customer you want to delete:"
-    last_name = gets.chomp
-
-    database.delete_customer(@db, first_name, last_name)
-
-  elsif input == 3 
-    puts "Enter the first name of the customer for the entry you want to update:"
-    first_name = gets.chomp
-    puts "Enter the last name of the customer for the entry you want to update:"
-    last_name = gets.chomp
-
-    puts "Type the entry for '#{first_name} #{last_name}' that you want to update?"
-    puts "first name, last name, age, color, or movie"
-    input = gets.chomp 
-
-
-    if input == "color"
-      puts "Type the id for the #{input} you would like to change to:"
+    if input == 1
+      puts "Enter customer first name:"
+      first_name = gets.chomp
+      puts "Enter customer last name:"
+      last_name = gets.chomp
+      puts "Enter the customer's age:"
+      age = gets.chomp.to_i
+      puts "Enter id for customer's favorite color:"
       database.display_colors
-      change_to = gets.chomp
-    elsif input == "movie"
-      puts "Type the id for the #{input} you would like to change to:"
+      favorite_color = gets.chomp.to_i
+      puts "Enter id for customer's favorite movie:"
       database.display_movies
-      change_to = gets.chomp
-    else
-      puts "Type what you would like to change #{input} to:"
-      change_to = gets.chomp
+      favorite_movie = gets.chomp.to_i 
+  
+      database.create_customer(first_name, last_name, age, favorite_color, favorite_movie)
+    elsif input == 2
+      puts "Enter the first name of the customer you want to delete:"
+      first_name = gets.chomp
+      puts "Enter the last name of the customer you want to delete:"
+      last_name = gets.chomp
+  
+      database.delete_customer(first_name, last_name)
+  
+    elsif input == 3 
+      puts "Enter the first name of the customer for the entry you want to update:"
+      first_name = gets.chomp
+      puts "Enter the last name of the customer for the entry you want to update:"
+      last_name = gets.chomp
+  
+      puts "Type the entry for '#{first_name} #{last_name}' that you want to update?"
+      puts "first name, last name, age, color, or movie"
+      input = gets.chomp 
+  
+  
+      if input == "color"
+        puts "Type the id for the #{input} you would like to change to:"
+        database.display_colors
+        change_to = gets.chomp
+      elsif input == "movie"
+        puts "Type the id for the #{input} you would like to change to:"
+        database.display_movies
+        change_to = gets.chomp
+      else
+        puts "Type what you would like to change #{input} to:"
+        change_to = gets.chomp
+      end 
+  
+      database.update_customer(first_name, last_name, input, change_to)
     end 
-
-    database.update_customer(@db, first_name, last_name, input, change_to)
-
-
-  end 
-#end
+    input = gets.chomp 
+end
 
 
 
