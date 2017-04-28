@@ -1,87 +1,187 @@
 require 'sqlite3'
 require 'faker'
 
-db = SQLite3::Database.new("customers.db")
-db.results_as_hash = true 
+class Database
+
+  attr_reader :db
+
+  def initialize
+    @db = SQLite3::Database.new("customers.db")
+    @db.results_as_hash = true 
+  end 
+
+  def create_customer(db, first_name, last_name, age, color_id, movie_id)
+    @db.execute("INSERT INTO customers (first_name, last_name, age, color_id, movie_id) VALUES (?, ?, ?, ?, ?)", [first_name, last_name, age, color_id, movie_id])
+  end
+
+  def delete_customer(db, name1, name2)
+    @db.execute("DELETE FROM customers WHERE first_name=? AND last_name=?", [name1], [name2])
+    # delete_customer(db, "Tara", "Smith")
+  end 
+
+  def update_customer(db, change_to, name1, name2, input)
+    if input == "first name"
+      @db.execute("UPDATE customers SET first_name=? WHERE first_name=? AND last_name=?", [change_to], [name1], [name2])
+    elsif input == "last name"
+      @db.execute("UPDATE customers SET last_name=? WHERE first_name=? AND last_name=?", [change_to], [name1], [name2])
+    elsif input == "age"
+      @db.execute("UPDATE customers SET age=? WHERE first_name=? AND last_name=?", [change_to.to_i], [name1], [name2])
+    elsif input == "color"
+      @db.execute("UPDATE customers SET color_id=? WHERE first_name=? AND last_name=?", [change_to.to_i], [name1], [name2])
+    elsif input == "movie"
+      @db.execute("UPDATE customers SET movie_id=? WHERE first_name=? AND last_name=?", [change_to.to_i], [name1], [name2])
+    else
+      puts "Please choose valid input"
+    end 
+    # update_customer(db, "Mary", "Asia", "Schuppe")
+  end 
+
+end 
 
 
-create_table = <<-SQL
-  CREATE TABLE IF NOT EXISTS colors(
-    id INTEGER PRIMARY KEY,
-    color VARCHAR(255)
-  )
-SQL
+# user interface 
 
-db.execute(create_table)
+puts "Select the number what you would like to do in the database:"
+puts "1 to Insert customer"
+puts "2 to Delete customer"
+puts "3 to Update customer"
 
+input = gets.chomp.to_i
 
-create_table = <<-SQL
-  CREATE TABLE IF NOT EXISTS movies(
-    id INTEGER PRIMARY KEY,
-    title VARCHAR(255)
-  )
-SQL
+database = Database.new
 
-db.execute(create_table)
+#input = ""
+#until input == "done"
+  if input == 1
+    puts "Enter customer first name:"
+    first_name = gets.chomp
+    puts "Enter customer last name:"
+    last_name = gets.chomp
+    puts "Enter the customer's age:"
+    age = gets.chomp.to_i
+    puts "Enter id for customer's favorite color:"
+    favorite_color = gets.chomp.to_i
+    puts "Enter id for customer's favorite movie:"
+    favorite_movie = gets.chomp.to_i 
 
+    database.create_customer(@db, first_name, last_name, age, favorite_color, favorite_movie)
+  elsif input == 2
+    puts "Enter the first name of the customer you want to delete:"
+    first_name = gets.chomp
+    puts "Enter the last name of the customer you want to delete:"
+    last_name = gets.chomp
 
-create_table = <<-SQL
-  CREATE TABLE IF NOT EXISTS customers(
-    id INTEGER PRIMARY KEY,
-    first_name VARCHAR(255),
-    last_name VARCHAR(255),
-    age INT,
-    color_id INT,
-    movie_id INT,
-    FOREIGN KEY (color_id) REFERENCES colors(id),
-    FOREIGN KEY (movie_id) REFERENCES movies(id)
-  )
-SQL
+    database.delete_customer(@db, first_name, last_name)
 
-db.execute(create_table)
+  elsif 
 
-
-def create_color(db, color)
-  db.execute("INSERT INTO colors (color) VALUES (?)", [color])
-end
-
-# create_color(db, "Blue")
-# create_color(db, "Green")
-# create_color(db, "Red")
-# create_color(db, "White")
-# create_color(db, "Yellow")
-# create_color(db, "Black")
-# create_color(db, "Grey")
-# create_color(db, "Orange")
-# create_color(db, "Purple")
-# create_color(db, "Pink")
-# create_color(db, "Brown")
-# create_color(db, "Magenta")
-
-def create_movie(db, title)
-  db.execute("INSERT INTO movies (title) VALUES (?)", [title])
-end
-
-# create_movie(db, "The Boss Baby")
-# create_movie(db, "The Fate of the Furious")
-# create_movie(db, "Going in Style")
-# create_movie(db, "Get Out")
-# create_movie(db, "Unforgettable")
-# create_movie(db, "Moonlight")
-# create_movie(db, "La La Land")
-# create_movie(db, "The Jungle Book")
-# create_movie(db, "Zootopia")
-# create_movie(db, "Finding Dory")
-# create_movie(db, "Arrival")
-# create_movie(db, "Smurfs")
+  end 
+#end
 
 
-def create_customer(db, first_name, last_name, age, color_id, movie_id)
-  db.execute("INSERT INTO customers (first_name, last_name, age, color_id, movie_id) VALUES (?, ?, ?, ?, ?)", [first_name, last_name, age, color_id, movie_id])
-end
 
-#create_customer(db, "Tara", "Armov", 25, 3, 5)
 
+# db = SQLite3::Database.new("customers.db")
+# db.results_as_hash = true 
+
+
+##############################################################
+
+
+# create_table = <<-SQL
+#   CREATE TABLE IF NOT EXISTS colors(
+#     id INTEGER PRIMARY KEY,
+#     color VARCHAR(255)
+#   )
+# SQL
+
+# db.execute(create_table)
+
+
+# create_table = <<-SQL
+#   CREATE TABLE IF NOT EXISTS movies(
+#     id INTEGER PRIMARY KEY,
+#     title VARCHAR(255)
+#   )
+# SQL
+
+# db.execute(create_table)
+
+
+# create_table = <<-SQL
+#   CREATE TABLE IF NOT EXISTS customers(
+#     id INTEGER PRIMARY KEY,
+#     first_name VARCHAR(255),
+#     last_name VARCHAR(255),
+#     age INT,
+#     color_id INT,
+#     movie_id INT,
+#     FOREIGN KEY (color_id) REFERENCES colors(id),
+#     FOREIGN KEY (movie_id) REFERENCES movies(id)
+#   )
+# SQL
+
+# db.execute(create_table)
+
+
+# def create_color(db, color)
+#   db.execute("INSERT INTO colors (color) VALUES (?)", [color])
+# end
+
+# # create_color(db, "Blue")
+# # create_color(db, "Green")
+# # create_color(db, "Red")
+# # create_color(db, "White")
+# # create_color(db, "Yellow")
+# # create_color(db, "Black")
+# # create_color(db, "Grey")
+# # create_color(db, "Orange")
+# # create_color(db, "Purple")
+# # create_color(db, "Pink")
+# # create_color(db, "Brown")
+# # create_color(db, "Magenta")
+
+# def create_movie(db, title)
+#   db.execute("INSERT INTO movies (title) VALUES (?)", [title])
+# end
+
+# # create_movie(db, "The Boss Baby")
+# # create_movie(db, "The Fate of the Furious")
+# # create_movie(db, "Going in Style")
+# # create_movie(db, "Get Out")
+# # create_movie(db, "Unforgettable")
+# # create_movie(db, "Moonlight")
+# # create_movie(db, "La La Land")
+# # create_movie(db, "The Jungle Book")
+# # create_movie(db, "Zootopia")
+# # create_movie(db, "Finding Dory")
+# # create_movie(db, "Arrival")
+# # create_movie(db, "Smurfs")
+
+
+# def create_customer(db, first_name, last_name, age, color_id, movie_id)
+#   db.execute("INSERT INTO customers (first_name, last_name, age, color_id, movie_id) VALUES (?, ?, ?, ?, ?)", [first_name, last_name, age, color_id, movie_id])
+# end
+
+# # create_customer(db, "Tara", "Armov", 25, 3, 5)
+# #create_customer(db, "Tara", "Smith", 26, 2, 1)
+
+
+
+
+
+
+
+##############################################################
+
+
+
+# UPDATE rabbits SET age=4 WHERE name="Queen Bey";
+
+#   def delete_customer(db, name1, name2)
+#     db.execute("DELETE FROM customers WHERE first_name=? AND last_name=?", [name1], [name2])
+#     # delete_customer(db, "Tara", "Smith")
+#   end
 
 
 # 5.times do 
