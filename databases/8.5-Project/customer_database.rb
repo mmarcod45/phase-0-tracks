@@ -7,33 +7,31 @@ class Database
 
   def initialize
     @db = SQLite3::Database.new("customers.db")
-    @db.results_as_hash = true 
+    @db.results_as_hash = true
   end 
-                        # the db below as an argument was not be needed. @db is already an instance variable and it is accessible.
+                        
   def create_customer(first_name, last_name, age, color_id, movie_id)
     @db.execute("INSERT INTO customers (first_name, last_name, age, color_id, movie_id) VALUES (?, ?, ?, ?, ?)", [first_name, last_name, age, color_id, movie_id])
   end
 
   def delete_customer(name1, name2)
     @db.execute("DELETE FROM customers WHERE first_name=? AND last_name=?", [name1], [name2])
-    # delete_customer(db, "Tara", "Smith")
   end 
 
-  def update_customer(name1, name2, input, change_to)
-    if input == "first name"
+  def update_customer(name1, name2, input_2, change_to)
+    if input_2 == "first name"
       @db.execute("UPDATE customers SET first_name=? WHERE first_name=? AND last_name=?", [change_to], [name1], [name2])
-    elsif input == "last name"
+    elsif input_2 == "last name"
       @db.execute("UPDATE customers SET last_name=? WHERE first_name=? AND last_name=?", [change_to], [name1], [name2])
-    elsif input == "age"
+    elsif input_2 == "age"
       @db.execute("UPDATE customers SET age=? WHERE first_name=? AND last_name=?", [change_to.to_i], [name1], [name2])
-    elsif input == "color"
+    elsif input_2 == "color"
       @db.execute("UPDATE customers SET color_id=? WHERE first_name=? AND last_name=?", [change_to.to_i], [name1], [name2])
-    elsif input == "movie"
+    elsif input_2 == "movie"
       @db.execute("UPDATE customers SET movie_id=? WHERE first_name=? AND last_name=?", [change_to.to_i], [name1], [name2])
     else
       puts "Please choose valid input"
     end 
-    # update_customer(db, "Mary", "Asia", "Schuppe")
   end 
 
   def display_colors
@@ -50,75 +48,157 @@ class Database
     end  
   end
 
+  def display_customers(name)
+    customers = @db.execute("SELECT * FROM customers WHERE customers.last_name =?", [name])
+    customers.each do |item|
+      puts "First name: #{item['first_name']}, Last name: #{item['last_name']}"
+      puts "-------------"
+    end
+  end 
+
+
+  def exists_last_name(last_name)
+    @db.results_as_hash = false
+    customers = @db.execute("SELECT * FROM customers")
+    join_array = customers.join(' ')
+    split_array = join_array.split(' ')
+      
+      if split_array.include?(last_name)
+        @db.results_as_hash = true
+        result = true 
+      else 
+        @db.results_as_hash = true
+        result = false
+      end 
+    result 
+  end 
+
+  def exists_first_name(first_name, last_name)
+    @db.results_as_hash = false
+    customers = @db.execute("SELECT * FROM customers WHERE customers.last_name =?", [last_name])
+    join_array = customers.join(' ')
+    split_array = join_array.split(' ')
+      
+      if split_array.include?(first_name)
+        @db.results_as_hash = true
+        result = true 
+      else 
+        @db.results_as_hash = true
+        result = false
+      end 
+    result
+  end 
+
 end 
 
 
-# user interface 
+# user interface -start
 
 database = Database.new
 
+
 input = ""
 until input == "done"
-  puts "Select the number what you would like to do in the database: (or type 'done')"
-  puts "1 to Insert customer"
-  puts "2 to Delete customer"
-  puts "3 to Update customer"
-  
-  input = gets.chomp.to_i
+  puts "What you would like to do in the database? (type number or 'done')"
+  puts "Type 1 to Insert new customer"
+  puts "Type 2 to Delete existing customer"
+  puts "Type 3 to Update existing customer"
+  input = gets.chomp
 
-    if input == 1
-      puts "Enter customer first name:"
+
+    if input == "1"
+      puts "Enter new customer first name:"
       first_name = gets.chomp
-      puts "Enter customer last name:"
+      puts "Enter new customer last name:"
       last_name = gets.chomp
-      puts "Enter the customer's age:"
+      puts "Enter the new customer's age:"
       age = gets.chomp.to_i
-      puts "Enter id for customer's favorite color:"
+      puts "Enter id for the new customer's favorite color:"
       database.display_colors
       favorite_color = gets.chomp.to_i
-      puts "Enter id for customer's favorite movie:"
+      puts "Enter id for the new customer's favorite movie:"
       database.display_movies
       favorite_movie = gets.chomp.to_i 
   
       database.create_customer(first_name, last_name, age, favorite_color, favorite_movie)
-    elsif input == 2
-      puts "Enter the first name of the customer you want to delete:"
-      first_name = gets.chomp
-      puts "Enter the last name of the customer you want to delete:"
-      last_name = gets.chomp
-  
+    elsif input == "2"
+      last_name = ""
+      until database.exists_last_name(last_name) == true
+        puts "Enter the last name of the existing customer you want to delete:"
+        last_name = gets.chomp
+      end 
+
+      first_name = ""
+      until database.exists_first_name(first_name, last_name) == true ####
+        puts "Enter the first name of the existing customer you want to delete:"
+        database.display_customers(last_name)
+        first_name = gets.chomp
+      end 
+
+
       database.delete_customer(first_name, last_name)
   
-    elsif input == 3 
-      puts "Enter the first name of the customer for the entry you want to update:"
-      first_name = gets.chomp
-      puts "Enter the last name of the customer for the entry you want to update:"
-      last_name = gets.chomp
-  
-      puts "Type the entry for '#{first_name} #{last_name}' that you want to update?"
-      puts "first name, last name, age, color, or movie"
-      input = gets.chomp 
-  
-  
-      if input == "color"
-        puts "Type the id for the #{input} you would like to change to:"
-        database.display_colors
-        change_to = gets.chomp
-      elsif input == "movie"
-        puts "Type the id for the #{input} you would like to change to:"
-        database.display_movies
-        change_to = gets.chomp
-      else
-        puts "Type what you would like to change #{input} to:"
-        change_to = gets.chomp
+    elsif input == "3" 
+
+      last_name = ""
+      until database.exists_last_name(last_name) == true
+        puts "Enter the last name of the existing customer you want to update:"
+        last_name = gets.chomp
+      end 
+
+      first_name = ""
+      until database.exists_first_name(first_name, last_name) == true
+        puts "Enter the first name of the existing customer you want to update:"
+        database.display_customers(last_name)
+        first_name = gets.chomp
+      end 
+
+
+      valid = ""
+      until valid == true 
+        puts "Type the entry for '#{first_name} #{last_name}' that you want to update?"
+        puts "first name, last name, age, color, or movie"
+        input_2 = gets.chomp 
+
+
+        if input_2 == "first name"
+          valid = true 
+        elsif input_2 == "last name"
+          valid = true 
+        elsif input_2 == "age"
+          valid = true
+        elsif input_2 == "color"
+          valid = true 
+        elsif input_2 == "movie"
+          valid = true 
+        else 
+          valid = false
+        end
       end 
   
-      database.update_customer(first_name, last_name, input, change_to)
+  
+        if input_2 == "color" 
+          puts "Type the id for the #{input_2} you would like to change to:"
+          database.display_colors
+          change_to = gets.chomp
+        elsif input_2 == "movie"
+          puts "Type the id for the #{input_2} you would like to change to:"
+          database.display_movies
+          change_to = gets.chomp
+        else
+          puts "Type what you would like to change '#{input_2}' to:"
+          change_to = gets.chomp
+        end 
+
+      database.update_customer(first_name, last_name, input_2, change_to)
+    else
+        puts "Please enter valid input" 
     end 
+
     input = gets.chomp 
 end
 
-
+# user interface -end
 
 
 # db = SQLite3::Database.new("customers.db")
