@@ -1,4 +1,5 @@
-- Question 2
+## Question 2
+
 Some of the key design philosophies of Linux are:
 -Small is Beautiful
 -Each Program Does One Thing Well
@@ -10,7 +11,8 @@ Some of the key design philosophies of Linux are:
 -Avoid Captive User Interfaces
 -Make Every Program a Filter
 
-- Question 3 
+## Question 3 
+
 VPS (virtual private server) - it is a virtual machine sold as a service by an Internet hosting service. A VPS runs its own copy of an operating system, and customers may have superuser-level access to that operating system instance, so they can install almost any software that runs on that OS.
 
 Advantages: 
