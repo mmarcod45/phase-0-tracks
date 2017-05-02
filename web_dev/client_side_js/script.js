@@ -21,7 +21,15 @@ console.log("The script is running!");
 	//"click" is an 'event listener'. There are other ones.
 
 
+// Release 1
+var para = document.getElementsByTagName("p");
 
+for (var i=0; i<para.length; i++) {
+	para[i].style.border = "3px solid red";
+}
+
+
+// Release 2
 function addPinkBorder(event) {
 	console.log("click happened! here's the click event:");
 	console.log(event);
@@ -40,3 +48,5 @@ function addPinkBorder(event) {
 	var header2 = document.getElementsByTagName("h2")
 	var header = header2[0]
 	header.addEventListener("mouseover", change_first_image);
+
+
