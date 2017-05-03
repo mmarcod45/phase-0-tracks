@@ -49,6 +49,7 @@ end
 
 #### Release 0
 
+# Question 1:
 # write a GET route that displays an address
 # a made up address
 # http://localhost:9393/contact
@@ -56,6 +57,7 @@ get '/contact' do
   "Dev Bootcamp<br>633 Folsom<br>San Francisco, CA 94107<br>"
 end
 
+# Question 2:
 # write a GET route that displays a 'Good job' message
 # a name
 # http://localhost:9393/great_job?name=Jen (parameter 'Jen' is present)
@@ -69,15 +71,31 @@ get '/great_job' do
   end
 end
 
+# Question 3:
 # write a GET route that adds two numbers and responds with a result
 # two numbers
-# http://localhost:9393/contact
+# hhttp://localhost:9393/add/1/3
 get '/add/:number_1/:number_2' do 
   number_1 = params[:number_1]
   number_2 = params[:number_2]
   result = number_1 + number_2
   result
 end 
+
+ 
+#### Release 1
+
+# Question 1:
+# Sinatra is not the only web app library in Ruby. Others are: Ruby on Rails, 
+# Rack, Padrino, Volt, etc.
+
+# Question 2:
+# Another gem option to use with Sinatra is Heroku.
+
+# Question 3:
+# Web stack is a collection of software required for web development. At minimum, a web stack contains an operating system, a programming language, database software and a web server.
+# LAMP is a commonly used web stack.
+
 
 
 
